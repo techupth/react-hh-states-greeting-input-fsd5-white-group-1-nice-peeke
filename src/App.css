@@ -11,19 +11,21 @@
   padding: 20px;
   background-color: lightseagreen;
   border-radius: 30px;
+  display: inline-block;
 }
 
 .buttons {
   display: flex;
   gap: 20px;
   font-size: xx-large;
+  justify-content: center;
 }
 
 .input-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   font-size: 30px;
   margin-bottom: 30px;
 }
