@@ -1,32 +1,33 @@
-/**@jsxImportSource @emotion/react */
 import { useState } from "react";
 
 export function GreetingMessage() {
   const [greetingMessage, setGreetingMessage] = useState("Greeting Message");
   const [inputMessage, setInputMessage] = useState("");
 
+  function handleInputChange(event) {
+    setInputMessage(event.target.value);
+  }
+
+  function handleUpdateClick() {
+    setGreetingMessage(inputMessage);
+  }
+
   return (
-    <>
-      <h1 className="ShowMessage">{greetingMessage}</h1>
-      <div>
-        <label htmlFor="greetingInput">New Greeting Message</label>
+    <div>
+      <h1 className="greeting-container">{greetingMessage}</h1>
+      <div className="input-container">
+        <label htmlFor="greeting-message">New Greeting Message</label>
         <input
-          id="greetingInput"
+          id="greeting-message"
           type="text"
-          onChange={(event) => {
-            setInputMessage(event.target.value);
-          }}
+          onChange={handleInputChange}
           value={inputMessage}
         ></input>
       </div>
 
-      <button
-        onClick={() => {
-          setGreetingMessage(inputMessage);
-        }}
-      >
-        Update text
-      </button>
-    </>
+      <div className="buttons">
+        <button onClick={handleUpdateClick}>Update text</button>
+      </div>
+    </div>
   );
 }
